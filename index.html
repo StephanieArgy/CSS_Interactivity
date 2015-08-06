@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Interactivity Using CSS</title>
+  </head>
+  <body>
+    <h1>Enhancing Interactivity with CSS</h1>
+    <p>
+      If you want to add interactivity to your web pages without JavaScript or jQuery, you still can do a lot with CSS:
+    </p>
+
+    <h2>Pseudo-Classes</h2>
+    <p>
+      In your CSS, you can apply different styles to an HTML element, so that a user's interaction with that element will change its appearance.  For example, think of hyperlinks that change style when you mouse over them, click on them, or have visited the link:</p>
+      <p><a href="#" id="pseudoClassDemo" target="_blank">Demo Link</a></p>
+    <p>
+      You create these different styles in CSS with "pseudo-classes," which are keywords used after a CSS selector to specify a particular state. These pseudo-classes start with a colon and follow right after the element name.  Here are examples of four of the most common, shown here used for hyperlinks:
+    </p>
+    <h3>:link</h3>
+    <p>
+      <span class="commentText">/* This is for a link that hasn't been visited yet */</span><br>
+        <div class="codeBlock">
+        <code>a:link &lbrace;<br>
+          <em>Your styles go in here.</em><br>
+        &rbrace;</code>
+        </div>
+    </p>
+
+    <h3>:visited</h3>
+    <p>
+      <span class="commentText">/* This is for a link that the user has visited */</span><br>
+        <div class="codeBlock">
+        <code>a:visited &lbrace;<br>
+          <em>Your styles go in here.</em><br>
+        &rbrace;</code>
+        </div>
+    </p>
+
+    <h3>:hover</h3>
+    <p>
+      <span class="commentText">/* This is for a link that the user is hovering over with a mouse -- and it does NOT work on touch-screen devices like iPads and iPhones */</span><br>
+        <div class="codeBlock">
+        <code>a:hover &lbrace;<br>
+          <em>Your styles go in here.</em><br>
+        &rbrace;</code>
+        </div>
+    </p>
+
+    <h3>:active</h3>
+    <p>
+      <span class="commentText">/* This is for an element being activated (for example, a link at the moment that it's clicked on) */</span><br>
+        <div class="codeBlock">
+        <code>a:active &lbrace;<br>
+          <em>Your styles go in here.</em><br>
+        &rbrace;</code>
+        </div>
+    </p>
+
+    <p>
+      You can apply pseudo-classes to all sorts of elements -- for instance, if you wanted a paragraph to turn orange and be underlined when a user hovered over it, you could do this:
+        <div class="codeBlock">
+        <code>p:hover &lbrace;<br>
+            color: orange;<br>
+            text-decoration: underline;<br>
+        &rbrace;</code>
+        </div>
+    </p>
+
+    And then if someone were to put their cursor over your paragraph, it would behave like this:</p>
+
+    <p id="hoverParagraph">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+    <p>
+      You can also use pseudo-classes on a button. If you wanted the button to appear to pop up a little and cast a shadow, you'd first set the styles for the button in its normal state, then create a :hover pseudo-class to make the button change when someone mouses over it:<p>
+
+    <p>
+        <div class="codeBlock">
+          <code>button &lbrace;<br>
+            background: #99CCFF;<br>
+            border: 2px solid black;<br>
+            font-size: 1.2rem;<br>
+            padding: 5px;<br>
+          &rbrace;</code>
+        </div>
+    </p>
+
+    <p>
+        <div class="codeBlock">
+        <code>button:hover &lbrace;<br>
+          background: #ADD6FF;<br>
+          box-shadow: 5px 5px 5px #888888;<br>
+          position: relative;<br>
+            bottom: 2px;<br>
+            right: 2px;<br>
+        &rbrace;</code>
+        </div>
+    </p>
+
+    <button type="button" name="button" id="buttonHoverDemo">Button Demo</button>
+
+    <p>
+      <h3>More Info on Pseudo-Classes:</h3>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">MDN: Pseudo-Classes</a></li>
+        <li>Duckett, <cite>HTML & CSS</cite>, pages 290-291.</li>
+      </ul>
+    </p>
+
+    <h2>CSS Animation</h2>
+    <p>
+      CSS3 makes it possible to animate most HTML elements without the use of Flash, JavaScript of jQuery. You can read about the basics here:
+      <ul>
+        <li><a href="http://www.w3schools.com/css/css3_animations.asp" target="_blank">W3 Schools: CSS3 Animations</a></li>
+        <li><a href="https://robots.thoughtbot.com/css-animation-for-beginners" target="_blank">CSS Animation for Beginners</a></li>
+        <li><a href="https://css-tricks.com/almanac/properties/a/animation/" target="_blank">CSS-Tricks: Animation</a></li>
+      </ul>
+      <strong>BUT...a cautionary note! Some browsers still require -webkit- prefixes for CSS3 animation, so be sure to go to <a href="http://caniuse.com/#feat=css-animation" target="_blank">caniuse.com</a> or <a href="http://shouldiprefix.com/#animations" target="_blank">shouldiprefix.com</a> to make sure you've added what you need to.</strong>
+    </p>
+
+    <p>
+      If you wanted to, you could change the color of a div:
+
+      <p>
+        <div class="codeBlock">
+          <code>
+            div &lbrace;<br>
+              width: 100%;<br>
+              height: 200px;<br>
+              animation: pulse 5s infinite;<br>
+              animation-direction: alternate-reverse;<br>
+            &rbrace;
+          </code>
+        </div>
+      </p>
+
+      <p>
+        <div class="codeBlock">
+          <code>
+            @keyframes pulse &lbrace;<br>
+              0% &lbrace;<br>
+                background-color: #001F3F;<br>
+              &rbrace;<br>
+              50% &lbrace;<br>
+                background-color: red;<br>
+              &rbrace;<br>
+              100% &lbrace;<br>
+                background-color: #FF4136;<br>
+              &rbrace;<br>
+            &rbrace;
+          </code>
+        </div>
+      </p>
+
+      <div id="colorChangeDiv"></div>
+
+    </p>
+
+    <p>
+      Or you could use this code...</p>
+
+      <p>
+        <div class="codeBlock">
+          <code>
+            h1 &lbrace;<br>
+            animation-duration: 3s;<br>
+            animation-name: slidein;<br>
+          &rbrace;<br>
+          </code>
+        </div>
+      </p>
+
+      <p>
+        <div class="codeBlock">
+          <code>
+            @keyframes slidein &lbrace;<br>
+              from &lbrace;<br>
+                color: green;<br>
+                margin-left: 100%;<br>
+                width: 300%; <br>
+              &rbrace;<br>
+            </code>
+          </div>
+        </p>
+
+        <p>
+          <div class="codeBlock">
+            <code>
+              to &lbrace;<br>
+                color: red;<br>
+                margin-left: 0%;<br>
+                width: 100%;<br>
+              &rbrace;<br>
+            &rbrace;<br>
+          </code>
+        </div>
+      </p>
+
+    <p>
+      ...to make text slide across the screen and turn from green to red, like this:
+    </p>
+
+    <h1 id="slidingText">Sliding Sliding Sliding!</h1>
+
+    <p>
+      Clearly, a technique to be used with some discretion. I beg you, please don't be obnoxious.
+    </p>
+
+    <div id="card-container">
+        <div id="card">
+            <div class="back">...like this.</div>
+            <div class="front">You can even use CSS to flip a card when you hover over it...</div>
+        </div>
+    </div>
+
+    <h2>Other Resources</h2>
+    <p>
+      If you want to find more things to try out with CSS, here are a few round-ups of tutorials:
+        <ul>
+          <li><a href="http://www.adobe.com/inspire/2013/04/animating-interactive-experiences-css.html" target="_blank">Adobe Info on Animating CSS Interactions</a></li>
+          <li><a href="https://webdesignledger.com/13-pure-css-techniques-for-creating-javascript-like-interactions#sthash.zORBmaEj.dpbs" target="_blank">13 Pure CSS Techniques for Creating JavaScript-like Interactions</a></li>
+          <li><a href="http://subliminalsources.com/293/css3-3d-flip-cards-tutorial/" target="_blank">CSS-Only Card Flips</a></li>
+        </ul>
+    </p>
+
+    <h2>Microinteractions</h2>
+    <p>
+      In thinking about what to do with all of these CSS capabilities, one more thing to consider is the concept of "microinteractions." What are you trying to help the user do? How can your CSS interactions and animations help make that easier and more sensible for him or her?
+        <ul>
+          <li><a href="http://www.webdesignerdepot.com/2015/07/7-secrets-for-enhancing-ux-with-micro-interactions/" target="_blank"><cite>7 Secrets for Enhancing UX with Micro-interactions</cite></a></li>
+          <li><a href="http://smartdesignworldwide.com/thinking/microinteractions-why-details-matter/" target="_blank"><cite>Smart Design: Microinteractions - Why Details Matter</cite></a></li>
+          <li><a href="http://www.fastcodesign.com/1672922/the-future-of-ux-design-tiny-humanizing-details" target="_blank"><cite>The Future of UX Design</cite></a></li>
+          <li><a href="http://www.powells.com/biblio/61-9781491945926-0" target="_blank"><cite>Microinteractions: Designing with Details</cite></a> by Dan Saffer (Book at Powell's)</li>
+        </ul>
+    </p>
+
+  </body>
+</html>
